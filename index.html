@@ -132,6 +132,276 @@ footer{text-align:center;font-size:12px;color:var(--m);margin-top:22px;font-weig
 <main class="wrap">
   <div class="panel">
 
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Colba markazi — Taklif va shikoyatlar</title>
+<meta name="theme-color" content="#35D5F2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+  // ====== SOZLAMALAR (faqat shu 2 qatorni o'zgartiring) ======
+  var BOT_TOKEN = "BU_YERGA_BOT_TOKEN";
+  var CHAT_ID   = "BU_YERGA_CHAT_ID";
+  // ===========================================================
+</script>
+<style>
+:root{
+  --a:#35D5F2; --a2:#12A9CC; --at:#E9F9FD; --n:#0B2536; --n2:#12344A; --d:#0F2433; --m:#5B6E7C; --line:#E2E8EC;
+  --r:#D64545; --rt:#FCEDED; --bg:#F4F6F8;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:Montserrat,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--d);-webkit-font-smoothing:antialiased}
+button{font-family:inherit;color:inherit}
+
+/* Header */
+.hero{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,#15405A 0%,var(--n) 60%);
+  color:#fff;padding:calc(34px + env(safe-area-inset-top)) 24px 104px;text-align:center}
+.flask{position:absolute;left:50%;top:-30px;width:520px;transform:translateX(-50%);opacity:.09;pointer-events:none}
+.flask *{fill:none;stroke:var(--a);stroke-width:7;stroke-linejoin:miter}
+.logo{position:relative;width:78px;height:88px;display:block;margin:0 auto}
+.brand{position:relative;font-weight:800;font-size:15px;letter-spacing:5px;margin-top:16px;color:#fff}
+.rule{position:relative;width:36px;height:2px;background:var(--a);margin:18px auto}
+.hero h1{position:relative;font-size:27px;font-weight:700;line-height:1.25;letter-spacing:-.2px}
+.hero p{position:relative;font-size:14px;font-weight:500;line-height:1.6;margin:10px auto 0;max-width:330px;color:#A9BDCB}
+
+.wrap{max-width:520px;margin:-68px auto 0;padding:0 16px calc(36px + env(safe-area-inset-bottom));position:relative}
+.panel{background:#fff;border-radius:18px;border:1px solid var(--line);box-shadow:0 20px 40px -24px rgba(11,37,54,.35);padding:24px 20px}
+.view{animation:in .3s ease both}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.hide{display:none!important}
+
+/* Choices */
+.q{font-size:12px;font-weight:700;color:var(--m);text-transform:uppercase;letter-spacing:1.6px;margin:0 0 14px}
+.choice{width:100%;display:flex;align-items:center;gap:16px;text-align:left;cursor:pointer;background:#fff;
+  border:1px solid var(--line);border-radius:14px;padding:18px 16px;position:relative;transition:border-color .15s, box-shadow .15s, transform .15s}
+.choice::before{content:"";position:absolute;left:-1px;top:14px;bottom:14px;width:3px;border-radius:0 3px 3px 0;background:var(--a2)}
+.choice.red::before{background:var(--r)}
+.choice+.choice{margin-top:12px}
+.choice:hover{border-color:var(--a);box-shadow:0 8px 20px -12px rgba(18,169,204,.5)}
+.choice.red:hover{border-color:#EBA5A5;box-shadow:0 8px 20px -12px rgba(214,69,69,.4)}
+.choice:active{transform:scale(.99)}
+.ic{flex-shrink:0;width:50px;height:50px;border-radius:12px;display:grid;place-items:center;background:var(--at)}
+.red .ic{background:var(--rt)}
+.ic svg{width:26px;height:26px;stroke:var(--a2);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.red .ic svg{stroke:var(--r)}
+.ct{font-size:18px;font-weight:700}
+.cs{font-size:13px;font-weight:500;color:var(--m);margin-top:3px;line-height:1.45}
+.go{margin-left:auto;flex-shrink:0}
+.go svg{width:20px;height:20px;stroke:#9AABB7;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.trust{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 18px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.t{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--m)}
+.t svg{width:15px;height:15px;stroke:var(--a2);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* Form */
+.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.back{display:flex;align-items:center;gap:6px;border:none;background:none;cursor:pointer;font-size:14px;font-weight:600;color:var(--m);padding:6px 0}
+.back svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.chip{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:6px 12px;border-radius:8px;background:var(--at);color:#0B7F9C}
+.chip.red{background:var(--rt);color:var(--r)}
+.chip i{width:7px;height:7px;border-radius:50%;background:currentColor}
+h2{font-size:23px;font-weight:700;line-height:1.3;letter-spacing:-.2px}
+.sub{font-size:14px;color:var(--m);margin-top:6px;line-height:1.55}
+.f{margin-top:20px}
+.lb{display:flex;justify-content:space-between;align-items:baseline;font-size:13.5px;font-weight:700;margin-bottom:8px}
+.lb small{font-size:12px;font-weight:500;color:#8C9CA8}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.seg button{padding:11px 4px;border-radius:10px;border:1px solid var(--line);background:#fff;font-size:14px;font-weight:600;cursor:pointer;transition:all .15s}
+.seg button.on{border-color:var(--a2);background:var(--at);color:#0B7F9C}
+.red-mode .seg button.on{border-color:var(--r);background:var(--rt);color:var(--r)}
+textarea,input{width:100%;font-family:inherit;font-size:16px;color:var(--d);border:1px solid #D3DCE2;border-radius:10px;
+  padding:13px 14px;background:#fff;outline:none;transition:border-color .15s, box-shadow .15s}
+textarea{min-height:150px;resize:vertical;line-height:1.55}
+textarea:focus,input:focus{border-color:var(--a2);box-shadow:0 0 0 3px rgba(53,213,242,.2)}
+.red-mode textarea:focus,.red-mode input:focus{border-color:var(--r);box-shadow:0 0 0 3px rgba(214,69,69,.12)}
+::placeholder{color:#A3B1BB}
+.count{text-align:right;font-size:12px;color:#8C9CA8;margin-top:6px}
+.send{width:100%;margin-top:24px;padding:16px;border:none;border-radius:12px;cursor:pointer;
+  background:var(--n);color:#fff;font-size:16px;font-weight:700;letter-spacing:.3px;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .15s, opacity .15s}
+.send:hover{background:var(--n2)}
+.send:disabled{opacity:.55;cursor:default}
+.send svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.err{color:var(--r);font-size:13px;font-weight:600;text-align:center;margin-top:12px;min-height:18px}
+.spin{width:17px;height:17px;border-radius:50%;border:2.5px solid rgba(255,255,255,.35);border-top-color:#fff;animation:sp .8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+/* Done */
+.done{text-align:center;padding:14px 4px 4px}
+.ok{width:76px;height:76px;border-radius:50%;margin:0 auto 20px;display:grid;place-items:center;background:var(--at);border:2px solid var(--a)}
+.ok svg{width:34px;height:34px;stroke:var(--a2);fill:none;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}
+.done h2{font-size:25px}
+.done .sub{font-size:15px;max-width:300px;margin:8px auto 0}
+.ghost{background:#fff;color:var(--d);border:1px solid var(--line)}
+.ghost:hover{background:var(--bg)}
+
+footer{text-align:center;font-size:12px;color:#8C9CA8;margin-top:22px;font-weight:500;letter-spacing:.3px}
+@media (min-width:600px){.hero{padding-top:52px}.hero h1{font-size:32px}.panel{padding:30px 28px}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <svg class="flask" viewBox="0 0 520 520" aria-hidden="true">
+    <path d="M150 40h70v70M370 40h-70v70"/>
+    <path d="M220 40v110a150 150 0 1 0 80 0V40"/>
+    <path d="M118 330c20 0 26-10 47-10s27 10 47 10 26-10 48-10 27 10 48 10 26-10 47-10 27 10 47 10"/>
+    <path d="M132 375c20 0 26-10 47-10s27 10 47 10 26-10 48-10 27 10 47 10 26-10 47-10"/>
+  </svg>
+  <svg class="logo" role="img" aria-label="Colba markazi logotipi" viewBox="190 170 700 785">
+<defs><linearGradient id="lg" x1="0" y1="0" x2="0.25" y2="1"><stop offset="0.5" stop-color="#38D6F2"/><stop offset="1" stop-color="#12A3DC"/></linearGradient>
+<clipPath id="lc"><circle cx="540" cy="558" r="228"/></clipPath></defs>
+<g fill="none" stroke="url(#lg)" stroke-width="37" stroke-linejoin="miter" stroke-miterlimit="10">
+<path d="M343,286 H228 V560 C228,790 420,890 540,916 C660,890 852,790 852,560 V286 H737"/>
+<path d="M366,207 H497.5 V334 A228,228 0 1 0 582.5,334 V207 H714"/>
+<path d="M540,396 V505 M433,440 L512,519 M647,440 L568,519"/>
+<path d="M390,546 H491 L509,528 Q540,504 571,528 L589,546 H690"/>
+<g clip-path="url(#lc)" stroke-width="30.5"><path d="M270,620.5 Q300,606.1 330,620.5 Q360,634.9 390,620.5 Q420,606.1 450,620.5 Q480,634.9 510,620.5 Q540,606.1 570,620.5 Q600,634.9 630,620.5 Q660,606.1 690,620.5 Q720,634.9 750,620.5 Q780,606.1 810,620.5"/><path d="M270,691.5 Q300,677.1 330,691.5 Q360,705.9 390,691.5 Q420,677.1 450,691.5 Q480,705.9 510,691.5 Q540,677.1 570,691.5 Q600,705.9 630,691.5 Q660,677.1 690,691.5 Q720,705.9 750,691.5 Q780,677.1 810,691.5"/></g>
+</g>
+<path fill="#38D6F2" d="M343,267.5 H419 Q395,302 343,304.5 Z M737,267.5 H661 Q685,302 737,304.5 Z"/>
+</svg>
+  <div class="brand">COLBA MARKAZI</div>
+  <div class="rule"></div>
+  <h1>Taklif va shikoyatlar</h1>
+  <p>Fikringiz biz uchun muhim. Har bir murojaatni rahbariyat shaxsan ko'rib chiqadi.</p>
+</section>
+
+<main class="wrap">
+  <div class="panel">
+
+    <section class="view" id="home">
+      <div class="q">Murojaat turini tanlang</div>
+      <button class="choice" onclick="ochish('Taklif')">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.3 1.1 2.2h5c0-.9.4-1.7 1.1-2.2A6 6 0 0 0 12 3z"/></svg></span>
+        <span><div class="ct">Taklif</div><div class="cs">Markaz faoliyatini yaxshilash bo'yicha g'oyangiz</div></span>
+        <span class="go"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </button>
+      <button class="choice red" onclick="ochish('Shikoyat')">
+        <span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5h.01"/></svg></span>
+        <span><div class="ct">Shikoyat</div><div class="cs">Sizni qoniqtirmagan holat haqida xabar bering</div></span>
+        <span class="go"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </button>
+      <div class="trust">
+        <div class="t"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Anonim</div>
+        <div class="t"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Rahbariyat o'qiydi</div>
+        <div class="t"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>1 daqiqa</div>
+      </div>
+    </section>
+
+    <section class="view hide" id="form">
+      <div class="top">
+        <button class="back" onclick="bosh()"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>Orqaga</button>
+        <span class="chip" id="chip"><i></i><b id="chipText">Taklif</b></span>
+      </div>
+      <h2 id="ftitle">Taklifingizni yozing</h2>
+      <p class="sub" id="fsub">G'oyangizni batafsil yozing — biz albatta ko'rib chiqamiz.</p>
+
+      <div class="f">
+        <div class="lb">Siz kimsiz?</div>
+        <div class="seg" id="kim">
+          <button type="button" onclick="kimTanla(this)">O'quvchi</button>
+          <button type="button" onclick="kimTanla(this)">Ota-ona</button>
+          <button type="button" onclick="kimTanla(this)">Boshqa</button>
+        </div>
+      </div>
+      <div class="f">
+        <div class="lb" id="mlabel">Taklifingiz</div>
+        <textarea id="matn" maxlength="3000" oninput="sana()"></textarea>
+        <div class="count"><span id="cnt">0</span> / 3000</div>
+      </div>
+      <div class="f">
+        <div class="lb">Filial, fan yoki ustoz <small>ixtiyoriy</small></div>
+        <input id="haqida" maxlength="200" placeholder="Masalan: Kimyo, 2-guruh">
+      </div>
+      <div class="f">
+        <div class="lb">Ism va telefon <small>javob olishni istasangiz</small></div>
+        <input id="aloqa" maxlength="150" placeholder="Masalan: Aziz, 90 123 45 67">
+      </div>
+      <button class="send" id="send" onclick="yubor()"><span id="sendTxt">Yuborish</span>
+        <svg id="sendIc" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></button>
+      <div class="err" id="err"></div>
+    </section>
+
+    <section class="view hide" id="done">
+      <div class="done">
+        <div class="ok"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+        <h2>Rahmat!</h2>
+        <p class="sub" id="dtext">Murojaatingiz qabul qilindi.</p>
+        <button class="send ghost" onclick="bosh()">Bosh sahifaga qaytish</button>
+      </div>
+    </section>
+
+  </div>
+  <footer>© Colba markazi</footer>
+</main>
+
+<script>
+var turi = 'Taklif', kim = '';
+function $(i){ return document.getElementById(i); }
+function ko(id){
+  ['home','form','done'].forEach(function(x){ $(x).classList.toggle('hide', x !== id); });
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function ochish(t){
+  turi = t; var sh = t === 'Shikoyat';
+  $('form').classList.toggle('red-mode', sh);
+  $('chip').className = 'chip' + (sh ? ' red' : '');
+  $('chipText').textContent = t;
+  $('ftitle').textContent = sh ? 'Shikoyatingizni yozing' : 'Taklifingizni yozing';
+  $('fsub').textContent = sh ? "Nima bo'ldi, qachon va qayerda — batafsil yozing. Muammoni albatta hal qilamiz."
+                             : "G'oyangizni batafsil yozing — biz albatta ko'rib chiqamiz.";
+  $('mlabel').textContent = sh ? 'Shikoyatingiz' : 'Taklifingiz';
+  $('matn').placeholder = sh ? "Masalan: 3-xonada konditsioner ishlamayapti..." : "Masalan: Shanba kunlari qo'shimcha amaliy mashg'ulot bo'lsa...";
+  $('err').textContent = '';
+  ko('form');
+}
+function bosh(){ ko('home'); }
+function kimTanla(b){
+  kim = b.classList.contains('on') ? '' : b.textContent;
+  [].forEach.call($('kim').children, function(x){ x.classList.toggle('on', x === b && kim !== ''); });
+}
+function sana(){ $('cnt').textContent = $('matn').value.length; }
+function esc(s){ return String(s).replace(/[&<>]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]; }); }
+function yuklanmoqda(on){
+  $('send').disabled = on;
+  $('sendTxt').textContent = on ? 'Yuborilmoqda...' : 'Yuborish';
+  $('sendIc').outerHTML = on ? '<span class="spin" id="sendIc"></span>'
+    : '<svg id="sendIc" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg>';
+}
+function yubor(){
+  var m = $('matn').value.trim();
+  if (m.length < 3){ $('err').textContent = 'Iltimos, xabaringizni yozing.'; $('matn').focus(); return; }
+  var sh = turi === 'Shikoyat';
+  var vaqt = new Date().toLocaleString('uz-UZ', {timeZone:'Asia/Tashkent'});
+  var text = (sh ? '🔴 <b>YANGI SHIKOYAT</b>' : '🔵 <b>YANGI TAKLIF</b>') + '\n\n' +
+    esc(m) + '\n\n' +
+    '👤 <b>Kim:</b> ' + esc(kim || 'ko\'rsatilmagan') + '\n' +
+    (($('haqida').value.trim()) ? '📍 <b>Haqida:</b> ' + esc($('haqida').value.trim()) + '\n' : '') +
+    (($('aloqa').value.trim()) ? '📞 <b>Aloqa:</b> ' + esc($('aloqa').value.trim()) + '\n' : '📞 <b>Aloqa:</b> anonim\n') +
+    '🕒 ' + vaqt;
+  $('err').textContent = '';
+  yuklanmoqda(true);
+  var body = new URLSearchParams({chat_id: CHAT_ID, text: text, parse_mode: 'HTML'});
+  fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage', {method:'POST', body: body})
+    .then(function(r){ return r.json(); })
+    .then(function(j){
+      if (!j.ok) throw new Error(j.description || 'xato');
+      $('dtext').textContent = sh ? "Shikoyatingiz qabul qilindi. Muammoni albatta ko'rib chiqamiz."
+                                  : "Taklifingiz qabul qilindi. Fikringiz uchun katta rahmat!";
+      $('matn').value = ''; $('haqida').value = ''; $('aloqa').value = ''; sana(); kim = '';
+      [].forEach.call($('kim').children, function(x){ x.classList.remove('on'); });
+      yuklanmoqda(false); ko('done');
+    })
+    .catch(function(){
+      yuklanmoqda(false);
+      $('err').textContent = "Xatolik yuz berdi. Internetni tekshirib, qayta urinib ko'ring.";
+    });
+}
+</script>
+</body>
+</html>
     <!-- 1. Tanlash -->
     <section class="view" id="home">
       <div class="q">Nima haqida yozmoqchisiz?</div>
